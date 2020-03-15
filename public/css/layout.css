@@ -985,7 +985,6 @@ footer .social-links li:first-child { margin-left: 0; }
 /* Go To Top Button */
 #go-top {
 	position: absolute;
-	top: -24px;
    left: 50%;
    margin-left: -30px;
 }
@@ -994,7 +993,6 @@ footer .social-links li:first-child { margin-left: 0; }
 	border: 0 none;
 	display: block;
 	width: 60px;
-	height: 60px;
 	background-color: #525252;
 
 	-webkit-transition: all 0.2s ease-in-out;
