@@ -20,12 +20,14 @@ jQuery(document).ready(function ($) {
 
    $(function () {
       var i = 0;
+      var timer = 2000;
       setInterval(function () {
          i++;
          if (i == images.length) {
             i = 0;
+            timer = 9999999999;
          }
-         $('h1.responsive-headline').fadeOut(2000, function () {
+         $('h1.responsive-headline').fadeOut(timer, function () {
             $(this).text(headline[i]);
             $(this).fadeIn(2000);
          });
@@ -96,13 +98,15 @@ jQuery(document).ready(function ($) {
    ]
    $(function () {
       var i = 0;
+      var timer = 2000;
       $('header').css("background", "url(images/" + images[i] + ")");
       setInterval(function () {
          i++;
          if (i == images.length) {
             i = 0;
+            timer = 9999999999;
          }
-         $('header').fadeOut(2000, function () {
+         $('header').fadeOut(timer, function () {
             $(this).css("background", "url(images/" + images[i] + ")");
             $(this).fadeIn(2000);
          });
