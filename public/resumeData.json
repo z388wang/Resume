@@ -83,12 +83,8 @@
       {
         "title": "Luggage GPS Website",
         "category": "A Vue based Luggage location mobile application",
-        "image": [
-          "EMS_login.JPG",
-          "EMS_list.JPG",
-          "EMS_map.JPG"
-        ],
-        "url": "https://5e6a954841d0040008f8d89f--elated-hugle-ee3777.netlify.com/login"
+        "image": "EMS_login.JPG",
+        "url": "https://5e6a954841d0040008f8d89f--elated-hugle-ee3777.netlify.com/"
       }
     ]
   }
