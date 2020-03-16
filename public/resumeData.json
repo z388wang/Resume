@@ -6,7 +6,6 @@
     "contactmessage": "Here is where you should write your message to readers to have them get in contact with you.",
     "email": "z388wang@gmail.com",
     "phone": "5195735833",
-    "website": "http://www.timbakerdev.com",
     "resumedownload": "http://timbakerdev.com",
     "social": [
       {
@@ -79,7 +78,17 @@
         "title": "Resume Website",
         "category": "A React based resume website template",
         "image": "resume-website.jpg",
-        "url": ""
+        "url": "https://agitated-hodgkin-2d20c5.netlify.com/#resume"
+      },
+      {
+        "title": "Luggage GPS Website",
+        "category": "A Vue based Luggage location mobile application",
+        "image": [
+          "EMS_login.JPG",
+          "EMS_list.JPG",
+          "EMS_map.JPG"
+        ],
+        "url": "https://5e6a954841d0040008f8d89f--elated-hugle-ee3777.netlify.com/login"
       }
     ]
   }
