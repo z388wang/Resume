@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import About from './Components/About';
 import Resume from './Components/Resume';
 import Portfolio from './Components/Portfolio';
+import PropTypes from 'prop-types';
 
 class App extends Component {
 
@@ -14,13 +15,20 @@ class App extends Component {
     super(props);
     this.state = {
       foo: 'bar',
-      resumeData: {}
+      resumeData: {},
+      goNextPage: false,
     };
+    this.loadRest = this.loadRest.bind(this);
 
     ReactGA.initialize('UA-110570651-1');
     ReactGA.pageview(window.location.pathname);
 
   }
+
+  loadRest() {
+    this.setState({ goNextPage: true });
+  }
+
 
   getResumeData() {
     $.ajax({
@@ -39,19 +47,29 @@ class App extends Component {
 
   componentDidMount() {
     this.getResumeData();
+    setTimeout(this.loadRest, 9000);
   }
 
   render() {
     return (
       <div className="App">
         <Header data={this.state.resumeData.main} />
-        <About data={this.state.resumeData.main} />
-        <Resume data={this.state.resumeData.resume} />
-        <Portfolio data={this.state.resumeData.portfolio} />
-        <Footer data={this.state.resumeData.main} />
+        {this.state.goNextPage &&
+          <div>
+            <About data={this.state.resumeData.main} />
+            <Resume data={this.state.resumeData.resume} />
+            <Portfolio data={this.state.resumeData.portfolio} />
+            <Footer data={this.state.resumeData.main} />
+          </div>
+        }
+
       </div>
     );
   }
 }
+
+App.propTypes = {
+  isClick: PropTypes.bool
+};
 
 export default App;

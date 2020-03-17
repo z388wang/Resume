@@ -161,7 +161,7 @@ ul#nav li a {
 }
 
 ul#nav li a:active { background-color: transparent !important; }
-ul#nav li.current a { color: #F06000; }
+ul#nav li a.smoothscroll.active { color: #F06000; }
 
 
 /* ------------------------------------------------------------------ */

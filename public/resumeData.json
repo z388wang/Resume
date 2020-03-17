@@ -56,11 +56,11 @@
       },
       {
         "name": "ReactJs",
-        "level": "80%"
+        "level": "90%"
       },
       {
         "name": "CSS",
-        "level": "90%"
+        "level": "80%"
       },
       {
         "name": "HTML5",
@@ -78,7 +78,7 @@
         "title": "Resume Website",
         "category": "A React based resume website template",
         "image": "resume-website.jpg",
-        "url": "https://agitated-hodgkin-2d20c5.netlify.com/#resume"
+        "url": "https://agitated-hodgkin-2d20c5.netlify.com/"
       },
       {
         "title": "Luggage GPS Mobile App",

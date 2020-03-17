@@ -21,17 +21,18 @@ jQuery(document).ready(function ($) {
    $(function () {
       var i = 0;
       var timer = 2000;
-      setInterval(function () {
+      var setIntervals = setInterval(intervals, 3000);
+
+      function intervals() {
          i++;
-         if (i == images.length) {
-            i = 0;
-            timer = 9999999999;
+         if (i == headline.length - 1) {
+            clearInterval(setIntervals);
          }
          $('h1.responsive-headline').fadeOut(timer, function () {
             $(this).text(headline[i]);
-            $(this).fadeIn(2000);
+            $(this).fadeIn(1000);
          });
-      }, 4000);
+      }
    });
 
    /*----------------------------------------------------*/
@@ -100,18 +101,21 @@ jQuery(document).ready(function ($) {
       var i = 0;
       var timer = 2000;
       $('header').css("background", "url(images/" + images[i] + ")");
-      setInterval(function () {
+      var setIntervals = setInterval(intervals, 3000);
+
+      function intervals() {
          i++;
-         if (i == images.length) {
-            i = 0;
-            timer = 9999999999;
+         if (i == images.length - 1) {
+            clearInterval(setIntervals);
          }
+         console.log(i);
          $('header').fadeOut(timer, function () {
             $(this).css("background", "url(images/" + images[i] + ")");
-            $(this).fadeIn(2000);
+            $(this).fadeIn(1000);
          });
-      }, 4000);
-   });
+      }
+   }
+   );
 
    /*----------------------------------------------------*/
    /*	Fade In/Out Primary Navigation
