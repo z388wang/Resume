@@ -17,6 +17,7 @@ class App extends Component {
       foo: 'bar',
       resumeData: {},
       goNextPage: false,
+      isHidden: true,
     };
     this.loadRest = this.loadRest.bind(this);
 
@@ -26,7 +27,7 @@ class App extends Component {
   }
 
   loadRest() {
-    this.setState({ goNextPage: true });
+    this.setState({ goNextPage: true, isHidden: false });
   }
 
 
@@ -53,7 +54,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header data={this.state.resumeData.main} />
+        <Header data={this.state.resumeData.main} isHidden={this.state.isHidden} />
         {this.state.goNextPage &&
           <div>
             <About data={this.state.resumeData.main} />

@@ -1,12 +1,38 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Header extends Component {
    constructor(props) {
       super(props);
       this.state = {
          mouseIsEnter: false,
+         isTimerHidden: false,
+         seconds: 4,
       }
       this.onClick = this.onClick.bind(this);
+   }
+
+   componentDidMount() {
+      this.myInterval = setInterval(() => {
+         if (this.state.seconds > 0) {
+            this.setState(({ seconds }) => ({
+               seconds: seconds - 1
+            }))
+         }
+         if (this.state.seconds === 0) {
+            clearInterval(this.myInterval)
+
+            setTimeout(() => {
+               this.setState({
+                  isTimerHidden: true
+               })
+            }, 1000)
+         }
+      }, 1000)
+   }
+
+   componentWillUnmount() {
+      clearInterval(this.myInterval)
    }
 
    onClick() {
@@ -45,7 +71,7 @@ class Header extends Component {
                <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
                <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a>
 
-               <ul id="nav" className="nav" >
+               <ul id="nav" className="nav" hidden={this.props.isHidden}>
                   <li><a className="smoothscroll active" href="#home" onClick={this.onClick}>Home</a></li>
                   <li><a id="about-section" className="smoothscroll" href="#about" onClick={this.onClick}>About</a></li>
                   <li><a className="smoothscroll" href="#resume" onClick={this.onClick}>Resume</a></li>
@@ -56,7 +82,10 @@ class Header extends Component {
 
             <div className="row banner">
                <div className="banner-text">
+
                   <h1 className="responsive-headline">I'm {name}.</h1>
+                  <h1 hidden={this.state.isTimerHidden}> {this.state.seconds} !</h1>
+
                   <hr />
                   <ul className="social">
                      {networks}
@@ -64,7 +93,7 @@ class Header extends Component {
                </div>
             </div>
 
-            <p className="scrolldown" id="scrolldown">
+            <p className="scrolldown" id="scrolldown" hidden={this.props.isHidden}>
                <a className="smoothscroll" href="#about" onClick={this.onClick}><i className="icon-down-circle"></i></a>
             </p>
 
@@ -72,5 +101,9 @@ class Header extends Component {
       );
    }
 }
+
+Header.propTypes = {
+   isHidden: PropTypes.bool
+};
 
 export default Header;
